@@ -68,7 +68,7 @@ ol, ul {
             line-height: 1em;
         }
 
-            #nav > ul > li a {
+            #nav > ul > li > a {
                 text-decoration: none;
                 border: 0;
                 display: block;
@@ -77,54 +77,30 @@ ol, ul {
                 font-weight: 700;
                 letter-spacing: 0.025em;
             }
-
-            #nav > ul > li:first-child {
-                margin-left: 0;
+            #nav > ul > li > a.active:after{
+                border-bottom-width: 0.5em;
+            }
+            #nav > ul > li > a:after {
+                content: '';
+				display: block;
+				position: absolute;
+				left: 50%;
+				bottom: 0em;
+				margin-left: -0.5em;
+				border-bottom: solid 0em #4acbd6;
+				border-left: solid 0.5em transparent;
+				border-right: solid 0.5em transparent;
+				-moz-transition: 0.5em .25s ease-in-out;
+				-webkit-transition: 0.5em .25s ease-in-out;
+				-ms-transition: 0.5em .25s ease-in-out;
+				transition: 0.5em .25s ease-in-out;
             }
 
             #nav > ul > li:hover a {
                 color: #4acbd6;
             }
 
-            #nav > ul > li.current {
-                font-weight: 700;
-            }
-
-                #nav > ul > li.current:before {
-                    -moz-transform: rotateZ(45deg);
-                    -webkit-transform: rotateZ(45deg);
-                    -ms-transform: rotateZ(45deg);
-                    transform: rotateZ(45deg);
-                    width: 0.75em;
-                    height: 0.75em;
-                    content: '';
-                    display: block;
-                    position: absolute;
-                    bottom: -0.5em;
-                    left: 50%;
-                    margin-left: -0.375em;
-                    background-color: #4acbd6;
-                    background-image: url("images/bg01.png");
-                }
-
-                #nav > ul > li.current a {
-                    color: #fff;
-                }
-
-            #nav > ul > li.active a {
-                color: #fff;
-            }
-
-            #nav > ul > li.active.current:before {
-                opacity: 0;
-            }
-
             #nav > ul > li > ul {
                 display: none;
             }
-.tp-btn {
-    background: #4ACBD6;
-}
-.tp-btn:hover {
-    background: #4DDCE9;
-}
+
