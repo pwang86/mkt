@@ -127,6 +127,20 @@ ol, ul {
     background-color: rgba(255,255,255,0.95);
     box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.05), inset 0 -1px 0 rgba(0,0,0,0.15);
 }
+.navbar-custom .navbar-nav .nav-link {
+    color:black;
+    font-weight: 700;
+    letter-spacing: 0.025em;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+.navbar-custom .nav-item:hover .nav-link {
+    color: #4acbd6;
+}
+.dropdown-item:hover {
+    color: #4acbd6;
+}
+
 @media (min-width: 768px) {
     .mkt-subnavbar {
         position: sticky;
