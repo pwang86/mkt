@@ -156,13 +156,21 @@
         </div>
 
         <!-- footer -->
-        <footer class="mkt-footer">
+        <footer class="navbar fixed-bottom justify-content-center mkt-footer">
           <div>
-            <span>Last updated 3 mins ago</span>
+            <span id="lastModified"></span>
           </div>
         </footer>
 
         <!-- script -->
         <script src="./assets/js/bootstrap.bundle.min.js"></script>
+        <script type="text/javascript">
+          function showLastModified() {
+            if (document.lastModified) {
+              document.getElementById('lastModified').innerHTML = new Date().toLocaleString()
+            }
+          }
+          window.onload = showLastModified;
+        </script>
     </body>
 </html>
