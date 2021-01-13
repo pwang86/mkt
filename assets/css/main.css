@@ -159,3 +159,12 @@ ol, ul {
 .container-custom {
     margin-top: 1rem;
 }
+
+.mkt-footer {
+    padding: 0.5em 0;
+    background-color: #4a4b4b;
+    text-align: center;
+    color: rgba(255,255,255,0.7);
+    font-size: 0.875em;
+    letter-spacing: 0.025em;
+}
