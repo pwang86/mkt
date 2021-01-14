@@ -160,8 +160,7 @@
           <div>
             <span>
               Updated 
-              <em id="lastModified"></em>
-              day(s) ago
+              <span id="lastModified"></span>
             </span>
           </div>
         </footer>
@@ -172,14 +171,26 @@
           function showLastModified() {
             // initialize current time to midnight
             let today = new Date(new Date().setHours(0, 0, 0, 0));
+
             // set modified date
-            let modifiedDate = new Date("01/13/2021");
+            let modifiedDate = new Date("01/14/2021");
 
             let diffTime = Math.abs(modifiedDate.getTime() - today.getTime());
             // get diff in days
             let diffDate = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-            console.log(diffDate);
-            document.getElementById('lastModified').innerHTML = diffDate;
+            
+            let res = "";
+
+            // res depends on diffDate
+            if (!diffDate) {
+              res = "today";
+            } else {
+              if (diffDate === 1)
+                res = "1 day ago";
+              else 
+                res = diffDate + "days ago";
+            }
+            document.getElementById('lastModified').innerHTML = res;
           }
           window.onload = showLastModified;
         </script>
