@@ -158,7 +158,11 @@
         <!-- footer -->
         <footer class="navbar fixed-bottom justify-content-center mkt-footer">
           <div>
-            <span id="lastModified"></span>
+            <span>
+              Updated 
+              <em id="lastModified"></em>
+              day(s) ago
+            </span>
           </div>
         </footer>
 
@@ -166,9 +170,16 @@
         <script src="./assets/js/bootstrap.bundle.min.js"></script>
         <script type="text/javascript">
           function showLastModified() {
-            if (document.lastModified) {
-              document.getElementById('lastModified').innerHTML = new Date().toLocaleString()
-            }
+            // initialize current time to midnight
+            let today = new Date(new Date().setHours(0, 0, 0, 0));
+            // set modified date
+            let modifiedDate = new Date("01/13/2021");
+
+            let diffTime = Math.abs(modifiedDate.getTime() - today.getTime());
+            // get diff in days
+            let diffDate = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            console.log(diffDate);
+            document.getElementById('lastModified').innerHTML = diffDate;
           }
           window.onload = showLastModified;
         </script>
