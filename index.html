@@ -66,8 +66,8 @@
                         </li>
                     </ul>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">POS Items</a>
+                  <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="pos-menu" data-bs-toggle="pill" href="#pos" role="tab" aria-controls="pos" aria-selected="false">POS Items</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#">Poster</a>
@@ -158,6 +158,23 @@
               </div>
             </div>
             
+            <!-- POS items -->
+            <div class="tab-pane" id="pos" role="tabpanel" aria-labelledby="pos-menu">
+              <div class="row row-cols-1 row-cols-md-4 g-4">
+                <div class="col">
+                  <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                    </div>
+                    <div class="card-footer">
+                      <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <!-- stationary -->
             <div class="tab-pane" id="stationary" role="tabpanel" aria-labelledby="stationary-menu">
               <div class="row row-cols-1 row-cols-md-4 g-4">
