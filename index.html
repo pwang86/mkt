@@ -48,9 +48,9 @@
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="myNavbarToggler">
-                <ul class="navbar-nav mx-auto mb-2 mb-lg-0 text-uppercase">
-                  <li class="nav-item">
-                    <a class="nav-link active" id="bags-menu" href="#bags" aria-controls="bags" aria-selected="true">Bags</a>
+                <ul class="nav nav-pills mx-auto mb-2 mb-lg-0 text-uppercase" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <a class="nav-link active" id="bags-menu" data-bs-toggle="pill" href="#bags" role="tab" aria-controls="bags" aria-selected="true">Bags</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#">Brochures</a>
@@ -78,8 +78,8 @@
                   <li class="nav-item">
                     <a class="nav-link" href="#">Record Complement</a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#stationary" aria-controls="stationary" aria-selected="false">Stationary</a>
+                  <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="stationary-menu" data-bs-toggle="pill" href="#stationary" role="tab" aria-controls="stationary" aria-selected="false">Stationary</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#">T-shirts</a>
@@ -89,71 +89,79 @@
         </nav>
         
         <!-- content -->
-        <div class="container container-custom fade show active" id="bags" aria-labelledby="bags-menu">
-          <div class="row row-cols-1 row-cols-md-4 g-4">
-            <div class="col">
-              <div class="card">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
+        <div class="container container-custom">
+          <div class="tab-content">
+            <!-- Bags -->
+            <div class="tab-pane active" id="bags" role="tabpanel" aria-labelledby="bags-menu">
+              <div class="row row-cols-1 row-cols-md-4 g-4">
+                <div class="col">
+                  <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                    </div>
+                    <div class="card-footer">
+                      <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                  </div>
                 </div>
-                <div class="card-footer">
-                  <small class="text-muted">Last updated 3 mins ago</small>
+                <div class="col">
+                  <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                    </div>
+                    <div class="card-footer">
+                      <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                    </div>
+                    <div class="card-footer">
+                      <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                    </div>
+                    <div class="card-footer">
+                      <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="col">
-              <div class="card">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                </div>
-                <div class="card-footer">
-                  <small class="text-muted">Last updated 3 mins ago</small>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                </div>
-                <div class="card-footer">
-                  <small class="text-muted">Last updated 3 mins ago</small>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                </div>
-                <div class="card-footer">
-                  <small class="text-muted">Last updated 3 mins ago</small>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
-          <!-- stationary -->
-        <div class="container container-custom fade" id="stationary" aria-labelledby="stationary-menu">
-          <div class="row row-cols-1 row-cols-md-4 g-4">
-              <div class="col">
-                <div class="card">
-                  <img src="..." class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                  </div>
-                  <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
+            <!-- stationary -->
+            <div class="tab-pane" id="stationary" role="tabpanel" aria-labelledby="stationary-menu">
+              <div class="row row-cols-1 row-cols-md-4 g-4">
+                <div class="col">
+                  <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                    </div>
+                    <div class="card-footer">
+                      <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
                   </div>
                 </div>
               </div>
+            </div>
+
           </div>
         </div>
+            
+              
 
         <!-- footer -->
         <footer class="navbar fixed-bottom justify-content-center mkt-footer">
