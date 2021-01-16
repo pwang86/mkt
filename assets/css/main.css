@@ -154,10 +154,13 @@ ol, ul {
 @media (min-width: 768px) {
     .container-custom {
         margin-top: 1.5rem!important;
+        margin-bottom: 4rem!important; /*set margin bottom to avoid footer hide content*/
     }
 }
 .container-custom {
     margin-top: 1rem;
+    margin-bottom: 3rem;
+    padding-bottom: 1rem; /*set padding bottom to make distance between content and footer longer*/
 }
 
 .mkt-footer {
