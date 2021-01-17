@@ -36,7 +36,10 @@
 .dropdown-item:hover {
     color: #4acbd6;
 }
-
+.dropdown-item:active, .dropdown-item.active {
+    color: white;
+    background-color: #4acbd6;
+}
 .container-custom {
     margin-top: 1rem;
     margin-bottom: 3rem;
