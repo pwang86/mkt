@@ -55,16 +55,17 @@
                   <li class="nav-item" role="presentation">
                     <a class="nav-link" id="brochures-menu" data-bs-toggle="pill" href="#brochures" role="tab" aria-controls="brochures" aria-selected="false">Brochures</a>
                   </li>
-                  <li class="nav-item dropdown">
+                  <li class="nav-item dropdown" role="presentation">
                     <a class="nav-link dropdown-toggle" href="#" id="myNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Dummy
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="myNavbarDropdown">
-                        <li>
-                            <li><a class="dropdown-item" href="#">Dummy Boxes</a></li>
-                            <li><a class="dropdown-item" href="#">Dummy Units</a></li>
-                        </li>
-                    </ul>
+                    <div class="dropdown-menu" aria-labelledby="myNavbarDropdown">
+                      <a class="dropdown-item" id="boxes-menu" data-bs-toggle="pill" href="#boxes" role="tab" aria-controls="boxes" aria-selected="false">
+                        Dummy Boxes
+                      </a>
+                      <a class="dropdown-item" id="units-menu" data-bs-toggle="pill" href="#units" role="tab" aria-controls="units" aria-selected="false">
+                        Dummy Units
+                      </a>
                   </li>
                   <li class="nav-item" role="presentation">
                     <a class="nav-link" id="pos-menu" data-bs-toggle="pill" href="#pos" role="tab" aria-controls="pos" aria-selected="false">POS Items</a>
@@ -201,7 +202,85 @@
                 </div>
               </div>
             </div>
-            
+
+            <!-- dummy boxes -->
+            <div class="tab-pane" id="boxes" role="tabpanel" aria-labelledby="boxes-menu">
+              <div class="row row-cols-1 row-cols-md-4 g-4">
+                <div class="col">
+                  <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                    </div>
+                    <div class="card-footer">
+                      <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                    </div>
+                    <div class="card-footer">
+                      <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                    </div>
+                    <div class="card-footer">
+                      <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                    </div>
+                    <div class="card-footer">
+                      <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- dummy units -->
+            <div class="tab-pane" id="units" role="tabpanel" aria-labelledby="units-menu">
+              <div class="row row-cols-1 row-cols-md-4 g-4">
+                <div class="col">
+                  <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                    </div>
+                    <div class="card-footer">
+                      <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                    </div>
+                    <div class="card-footer">
+                      <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <!-- POS items -->
             <div class="tab-pane" id="pos" role="tabpanel" aria-labelledby="pos-menu">
               <div class="row row-cols-1 row-cols-md-4 g-4">
@@ -335,6 +414,7 @@
 
         <!-- script -->
         <script src="./assets/js/bootstrap.bundle.min.js"></script>
+        <script src="./assets/js/main.js"></script>
         <script type="text/javascript">
           function showLastModified() {
             // initialize current time to midnight
