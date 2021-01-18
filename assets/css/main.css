@@ -60,7 +60,13 @@
         box-shadow: 0 0.5em 2em 0 rgba(54,68,75,.18);
     }
 }
+.list-custom {
+    max-width: 18rem;
+}
 
+.bg-custom{
+    background-color: #4acbd6;
+}
 .mkt-footer {
     padding: 0.5em 0;
     background-color: #4a4b4b;
