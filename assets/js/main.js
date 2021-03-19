@@ -70,6 +70,11 @@ const jsonData = `
     {"url":"/poster/p2.jpg","name":"Whole Home Mesh Wi-Fi Plastic Banner2 M5(3-pack)","qty":"20"},
     {"url":"/poster/p3.jpg","name":"Tp-Link Logo Plastic Banner","qty":"20"},
     {"url":"/poster/p4.jpg","name":"RE305 & RE650","qty":"20"}
+  ],
+  "tshirts": [
+    {"url": "/poster/p1.jpg", "name": "Polo", "group": [{"size": "S", "qty": "20"}, {"size": "M", "qty": "20"}, {"size": "L", "qty": "20"}]},
+    {"url": "/poster/p2.jpg", "name": "Blue", "group": [{"size": "S", "qty": "20"}, {"size": "M", "qty": "20"}, {"size": "L", "qty": "20"}]},
+    {"url": "/poster/p3.jpg", "name": "Black", "group": [{"size": "S", "qty": "20"}, {"size": "M", "qty": "20"}, {"size": "L", "qty": "20"}]}
   ]
 }`;
 const data = JSON.parse(jsonData);
@@ -149,8 +154,65 @@ function displayBags() {
       container.appendChild(unorderedList);
     });
   };
+
+  function displayTShirts() {
+    const container = document.getElementById("tshirtContainer");
+    /*
+      <div class="col">
+        <div class="card">
+          <img src="./assets/images/stationary/n3.jpg" class="card-img-top" alt="notebook3">
+          <div class="card-body">
+            <h5 class="card-title">SMB Black Shirt</h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item d-flex justify-content-between align-items-center">Size S<span class="badge bg-custom rounded-pill">194</span></li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">Size M<span class="badge bg-custom rounded-pill">194</span></li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">Size L<span class="badge bg-custom rounded-pill">194</span></li>
+          </ul>
+        </div>
+      </div>
+    */
+      data.tshirts.map(item => {
+        const column = document.createElement("div");
+        column.setAttribute("class", "col"); 
+    
+        const card = document.createElement("div");
+        card.setAttribute("class", "card");
+    
+        const image = document.createElement("img");
+        image.src = "./assets/images" + item.url;
+        image.setAttribute("class", "card-img-top");
+        image.alt = "t-shirt";
+    
+        const body = document.createElement("div");
+        body.setAttribute("class", "card-body");
+        const title = document.createElement("h5");
+        title.setAttribute("class", "card-title");
+        title.innerHTML = item.name;
+        body.appendChild(title);
+
+        const unorderedList = document.createElement("ul");
+        unorderedList.setAttribute("class", "list-group list-group-flush");
+        item.group.map(gItem => {
+          const listItem = document.createElement("li");
+          listItem.setAttribute("class", "list-group-item d-flex justify-content-between align-items-center");
+          listItem.innerHTML = "Size" + gItem.size + ":";
+      
+          const span = document.createElement("span");
+          span.setAttribute("class", "badge bg-custom rounded-pill");
+          span.innerHTML = gItem.qty;
+          listItem.appendChild(span);
+          unorderedList.appendChild(listItem);
+        });
+        card.innerHTML = image.outerHTML + body.outerHTML + unorderedList.outerHTML;
+        column.appendChild(card);
+        container.appendChild(column);
+      });
+  }
+
   window.onload = function() {
     showLastModified();
     displayBags();
     displayBoxes();
+    displayTShirts();
   }
