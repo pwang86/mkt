@@ -3,7 +3,7 @@ function showLastModified() {
   let today = new Date(new Date().setHours(0, 0, 0, 0));
 
   // set modified date (MM/DD/YYYY)
-  let modifiedDate = new Date("01/18/2021");
+  let modifiedDate = new Date("03/20/2021");
 
   let diffTime = Math.abs(modifiedDate.getTime() - today.getTime());
   // get diff in days
@@ -34,6 +34,7 @@ tabEl.addEventListener('shown.bs.tab', function (e) {
 });
 */
 
+// if extra comma appears after }, all js functions will not work
 const jsonData = `
 {
   "bags": [ 
@@ -64,6 +65,14 @@ const jsonData = `
     {"name": "W9960", "qty": "2"},
     {"name": "WA850RE", "qty": "54"},
     {"name": "C20", "qty": "194"}
+  ],
+  "units": [
+    {"name": "AX10", "qty": "8"},
+    {"name": "AX50", "qty": "4"},
+    {"name": "VR2800", "qty": "13"},
+    {"name": "VR300", "qty": "39"},
+    {"name": "X20 (1 Pack)", "qty": "26"},
+    {"name": "M5 (1 Pack)", "qty": "15"}
   ],
   "posters": [
     {"url":"/poster/p1.jpg","name":"Deco M5","qty":"20"},
@@ -153,8 +162,29 @@ function displayBags() {
       unorderedList.appendChild(listItem);
       container.appendChild(unorderedList);
     });
-  };
+  }
 
+  // Display all dummy units
+  function displayUnits() {
+    const container = document.getElementById("unitContainer");
+    data.units.map(item => {
+      const unorderedList = document.createElement("ul");
+      unorderedList.setAttribute("class", "list-group");
+
+      const listItem = document.createElement("li");
+      listItem.setAttribute("class", "list-group-item d-flex justify-content-between align-items-center");
+      listItem.innerHTML = item.name;
+      
+      const span = document.createElement("span");
+      span.setAttribute("class", "badge bg-custom rounded-pill");
+      span.innerHTML = item.qty;
+      listItem.appendChild(span);
+      unorderedList.appendChild(listItem);
+      container.appendChild(unorderedList);
+    });
+  }
+
+  // Display all T-Shirts
   function displayTShirts() {
     const container = document.getElementById("tshirtContainer");
     /*
@@ -214,5 +244,6 @@ function displayBags() {
     showLastModified();
     displayBags();
     displayBoxes();
+    displayUnits();
     displayTShirts();
   }
