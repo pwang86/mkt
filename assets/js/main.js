@@ -87,6 +87,12 @@ const jsonData = `
     {"url":"/poster/p3.jpg","name":"Tp-Link Logo Plastic Banner","qty":"12"},
     {"url":"/poster/p4.jpg","name":"RE305 & RE650","qty":"38"}
   ],
+  "promos": [
+    {"url":"/promo/p1.jpg","name":"Ball Pen","qty":"35"},
+    {"url":"/promo/p2.jpg","name":"Ball Pen (Blue)","qty":"19"},
+    {"url":"/promo/p3.jpg","name":"Ball Pen (Mercusys)","qty":"12"},
+    {"url":"/promo/p4.jpg","name":"USB (16G)","qty":"12"}
+  ],
   "tshirts": [
     {"url": "/poster/p1.jpg", "name": "Polo", "group": [{"size": "S", "qty": "20"}, {"size": "M", "qty": "20"}, {"size": "L", "qty": "20"}]},
     {"url": "/poster/p2.jpg", "name": "Blue", "group": [{"size": "S", "qty": "20"}, {"size": "M", "qty": "20"}, {"size": "L", "qty": "20"}]},
@@ -261,6 +267,41 @@ function displayBags() {
       });
   }
 
+  // Display all promo Items
+  function displayPromos() {
+    const container = document.getElementById("promoContainer");
+    data.promos.map(item => {
+      const column = document.createElement("div");
+      column.setAttribute("class", "col"); 
+  
+      const card = document.createElement("div");
+      card.setAttribute("class", "card");
+  
+      const image = document.createElement("img");
+      image.src = "./assets/images" + item.url;
+      image.setAttribute("class", "card-img-top");
+      image.alt = "Promo Item";
+  
+      const body = document.createElement("div");
+      body.setAttribute("class", "card-body");
+      const title = document.createElement("h5");
+      title.setAttribute("class", "card-title");
+      title.innerHTML = item.name;
+      body.appendChild(title);
+  
+      const footer = document.createElement("div");
+      footer.setAttribute("class", "card-footer");
+      const text = document.createElement("small");
+      text.setAttribute("class", "text-muted");
+      text.innerHTML = "Qty: " + item.qty;
+      footer.appendChild(text);
+  
+      card.innerHTML = image.outerHTML + body.outerHTML + footer.outerHTML;
+      column.appendChild(card);
+      container.appendChild(column);
+      });
+  }
+
   // Display all T-Shirts
   function displayTShirts() {
     const container = document.getElementById("tshirtContainer");
@@ -324,5 +365,6 @@ function displayBags() {
     displayUnits();
     displayPosItems();
     displayPosters();
+    displayPromos();
     displayTShirts();
   }
