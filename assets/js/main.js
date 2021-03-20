@@ -82,10 +82,10 @@ const jsonData = `
     {"url": "/pos/p4.jpg", "name": "Thick Plastic Stand(9cm x 9cm)", "qty": "77"}
   ],
   "posters": [
-    {"url":"/poster/p1.jpg","name":"Deco M5","qty":"20"},
-    {"url":"/poster/p2.jpg","name":"Whole Home Mesh Wi-Fi Plastic Banner2 M5(3-pack)","qty":"20"},
-    {"url":"/poster/p3.jpg","name":"Tp-Link Logo Plastic Banner","qty":"20"},
-    {"url":"/poster/p4.jpg","name":"RE305 & RE650","qty":"20"}
+    {"url":"/poster/p1.jpg","name":"Deco M5","qty":"35"},
+    {"url":"/poster/p2.jpg","name":"Whole Home Mesh Wi-Fi Plastic Banner2 M5(3-pack)","qty":"19"},
+    {"url":"/poster/p3.jpg","name":"Tp-Link Logo Plastic Banner","qty":"12"},
+    {"url":"/poster/p4.jpg","name":"RE305 & RE650","qty":"38"}
   ],
   "tshirts": [
     {"url": "/poster/p1.jpg", "name": "Polo", "group": [{"size": "S", "qty": "20"}, {"size": "M", "qty": "20"}, {"size": "L", "qty": "20"}]},
@@ -191,8 +191,9 @@ function displayBags() {
     });
   }
 
-  function displayPos() {
-    const container = document.getElementById("posContainer");
+  // Display all POS Items
+  function displayPosItems() {
+    const container = document.getElementById("posItemContainer");
     data.pos.map(item => {
       const column = document.createElement("div");
       column.setAttribute("class", "col"); 
@@ -204,6 +205,41 @@ function displayBags() {
       image.src = "./assets/images" + item.url;
       image.setAttribute("class", "card-img-top");
       image.alt = "POS";
+  
+      const body = document.createElement("div");
+      body.setAttribute("class", "card-body");
+      const title = document.createElement("h5");
+      title.setAttribute("class", "card-title");
+      title.innerHTML = item.name;
+      body.appendChild(title);
+  
+      const footer = document.createElement("div");
+      footer.setAttribute("class", "card-footer");
+      const text = document.createElement("small");
+      text.setAttribute("class", "text-muted");
+      text.innerHTML = "Qty: " + item.qty;
+      footer.appendChild(text);
+  
+      card.innerHTML = image.outerHTML + body.outerHTML + footer.outerHTML;
+      column.appendChild(card);
+      container.appendChild(column);
+      });
+  }
+
+  // Display all Posters
+  function displayPosters() {
+    const container = document.getElementById("posterContainer");
+    data.posters.map(item => {
+      const column = document.createElement("div");
+      column.setAttribute("class", "col"); 
+  
+      const card = document.createElement("div");
+      card.setAttribute("class", "card");
+  
+      const image = document.createElement("img");
+      image.src = "./assets/images" + item.url;
+      image.setAttribute("class", "card-img-top");
+      image.alt = "Poster";
   
       const body = document.createElement("div");
       body.setAttribute("class", "card-body");
@@ -286,6 +322,7 @@ function displayBags() {
     displayBags();
     displayBoxes();
     displayUnits();
-    DisplayPos();
+    displayPosItems();
+    displayPosters();
     displayTShirts();
   }
