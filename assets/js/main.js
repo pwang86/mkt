@@ -74,6 +74,13 @@ const jsonData = `
     {"name": "X20 (1 Pack)", "qty": "26"},
     {"name": "M5 (1 Pack)", "qty": "15"}
   ],
+  "pos": [
+    {"url": "/pos/p1.jpg", "name": "A4 Acrylic Stand", "qty": "29"},
+    {"url": "/pos/p2.jpg", "name": "A5 Acrylic Stand", "qty": "18"},
+    {"url": "/pos/p3.jpg", "name": "A6 Acrylic Stand", "qty": "65"},
+    {"url": "/pos/p4.jpg", "name": "Plastic Stand", "qty": "110"},
+    {"url": "/pos/p4.jpg", "name": "Thick Plastic Stand(9cm x 9cm)", "qty": "77"}
+  ],
   "posters": [
     {"url":"/poster/p1.jpg","name":"Deco M5","qty":"20"},
     {"url":"/poster/p2.jpg","name":"Whole Home Mesh Wi-Fi Plastic Banner2 M5(3-pack)","qty":"20"},
@@ -184,6 +191,40 @@ function displayBags() {
     });
   }
 
+  function displayPos() {
+    const container = document.getElementById("posContainer");
+    data.pos.map(item => {
+      const column = document.createElement("div");
+      column.setAttribute("class", "col"); 
+  
+      const card = document.createElement("div");
+      card.setAttribute("class", "card");
+  
+      const image = document.createElement("img");
+      image.src = "./assets/images" + item.url;
+      image.setAttribute("class", "card-img-top");
+      image.alt = "POS";
+  
+      const body = document.createElement("div");
+      body.setAttribute("class", "card-body");
+      const title = document.createElement("h5");
+      title.setAttribute("class", "card-title");
+      title.innerHTML = item.name;
+      body.appendChild(title);
+  
+      const footer = document.createElement("div");
+      footer.setAttribute("class", "card-footer");
+      const text = document.createElement("small");
+      text.setAttribute("class", "text-muted");
+      text.innerHTML = "Qty: " + item.qty;
+      footer.appendChild(text);
+  
+      card.innerHTML = image.outerHTML + body.outerHTML + footer.outerHTML;
+      column.appendChild(card);
+      container.appendChild(column);
+      });
+  }
+
   // Display all T-Shirts
   function displayTShirts() {
     const container = document.getElementById("tshirtContainer");
@@ -245,5 +286,6 @@ function displayBags() {
     displayBags();
     displayBoxes();
     displayUnits();
+    DisplayPos();
     displayTShirts();
   }
