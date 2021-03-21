@@ -43,6 +43,22 @@ const jsonData = `
     {"url": "/bag/b3.jpg", "name": "Non-woven Bag", "qty": "500"},
     {"url": "/bag.b4.jpg", "name": "Laptop bag", "qty": "500"}
   ],
+  "brochures": [
+    {"url": "/brochur/b1.jpg", "name": "Tp-Link Product Guide", "qty": "9"},
+    {"url": "/brochur/b2.jpg", "name": "KASA Smart Product Guide", "qty": "1"},
+    {"url": "/brochur/b3.jpg", "name": "Tapo Product Guide", "qty": "23"},
+    {"url": "/brochur/b4.jpg", "name": "Business Switches and Router", "qty": "29"},
+    {"url": "/brochur/b5.jpg", "name": "Pharos Solution", "qty": "14"},
+    {"url": "/brochur/4g.jpg", "name": "4G and MiFi", "qty": "3603"},
+    {"url": "/brochur/dsl.jpg", "name": "DSL", "qty": "3593"},
+    {"url": "/brochur/kasa.jpg", "name": "Kasa Smart", "qty": "3553"},
+    {"url": "/brochur/mercusys.png", "name": "Mercusys", "qty": "4003"},
+    {"url": "/brochur/mesh.jpg", "name": "Mesh Wi-Fi", "qty": "3513"},
+    {"url": "/brochur/omada.jpg", "name": "Omada SDN", "qty": "3573"},
+    {"url": "/brochur/range.jpg", "name": "Range Extenders and Powerline", "qty": "3613"},
+    {"url": "/brochur/tapo.jpg", "name": "Tapo Smart", "qty": "3663"},
+    {"url": "/brochur/wifi6.jpg", "name": "Wi-Fi 6 and Gaming Routers", "qty": "3613"}
+  ],
   "boxes": [
     {"name": "HS110", "qty": "313"},
     {"name": "AX10", "qty": "11"},
@@ -152,6 +168,12 @@ function displayColTemplate(myContainer, myData, myAlt) {
 function displayBags() {
   const container = document.getElementById("bagContainer");
   displayColTemplate(container, data.bags, "bag");
+}
+
+// display all brochures
+function displayBrochures() {
+  const container = document.getElementById("brochurContainer");
+  displayColTemplate(container, data.brochures, "brochur");
 }
 
   // display all dummy boxes
@@ -337,6 +359,7 @@ function displayBags() {
   window.onload = function() {
     showLastModified();
     displayBags();
+    displayBrochures();
     displayBoxes();
     displayUnits();
     displayPosItems();
