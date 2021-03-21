@@ -101,23 +101,22 @@ const jsonData = `
 }`;
 const data = JSON.parse(jsonData);
 
-// display all bags
-function displayBags() {
-  const container = document.getElementById("bagContainer");
-  /*
-    <div class="col">
-      <div class="card">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">White Plastic Bag</h5>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted">Qty:</small>
-        </div>
+// display col template
+/*
+  <div class="col">
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">White Plastic Bag</h5>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Qty:</small>
       </div>
     </div>
-  */
-  data.bags.map(item => {
+  </div>
+*/
+function displayColTemplate(myContainer, myData, myAlt) {
+  myData.map(item => {
     const column = document.createElement("div");
     column.setAttribute("class", "col"); 
 
@@ -127,7 +126,7 @@ function displayBags() {
     const image = document.createElement("img");
     image.src = "./assets/images" + item.url;
     image.setAttribute("class", "card-img-top");
-    image.alt = "bag";
+    image.alt = myAlt;
 
     const body = document.createElement("div");
     body.setAttribute("class", "card-body");
@@ -145,9 +144,15 @@ function displayBags() {
 
     card.innerHTML = image.outerHTML + body.outerHTML + footer.outerHTML;
     column.appendChild(card);
-    container.appendChild(column);
+    myContainer.appendChild(column);
     });
-  }
+}
+
+// display all bags
+function displayBags() {
+  const container = document.getElementById("bagContainer");
+  displayColTemplate(container, data.bags, "bag");
+}
 
   // display all dummy boxes
   function displayBoxes() {
@@ -200,36 +205,7 @@ function displayBags() {
   // Display all POS Items
   function displayPosItems() {
     const container = document.getElementById("posItemContainer");
-    data.pos.map(item => {
-      const column = document.createElement("div");
-      column.setAttribute("class", "col"); 
-  
-      const card = document.createElement("div");
-      card.setAttribute("class", "card");
-  
-      const image = document.createElement("img");
-      image.src = "./assets/images" + item.url;
-      image.setAttribute("class", "card-img-top");
-      image.alt = "POS";
-  
-      const body = document.createElement("div");
-      body.setAttribute("class", "card-body");
-      const title = document.createElement("h5");
-      title.setAttribute("class", "card-title");
-      title.innerHTML = item.name;
-      body.appendChild(title);
-  
-      const footer = document.createElement("div");
-      footer.setAttribute("class", "card-footer");
-      const text = document.createElement("small");
-      text.setAttribute("class", "text-muted");
-      text.innerHTML = "Qty: " + item.qty;
-      footer.appendChild(text);
-  
-      card.innerHTML = image.outerHTML + body.outerHTML + footer.outerHTML;
-      column.appendChild(card);
-      container.appendChild(column);
-      });
+    displayColTemplate(container, data.pos, "POS");
   }
 
   // Display all Posters
