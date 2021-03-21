@@ -109,6 +109,12 @@ const jsonData = `
     {"url":"/promo/p3.jpg","name":"Ball Pen (Mercusys)","qty":"12"},
     {"url":"/promo/p4.jpg","name":"USB (16G)","qty":"12"}
   ],
+  "stationaries": [
+    {"url":"/stationary/n1.jpg","name":"A4 Diary NoteBook","qty":"167"},
+    {"url":"/stationary/n2.jpg","name":"Mercusys Diary NoteBook","qty":"842"},
+    {"url":"/stationary/n3.jpg","name":"A5 NoteBook","qty":"2"},
+    {"url":"/stationary/ring.jpg","name":"Postal Tubes","qty":"32"}
+  ],
   "tshirts": [
     {"url": "/poster/p1.jpg", "name": "Polo", "group": [{"size": "S", "qty": "20"}, {"size": "M", "qty": "20"}, {"size": "L", "qty": "20"}]},
     {"url": "/poster/p2.jpg", "name": "Blue", "group": [{"size": "S", "qty": "20"}, {"size": "M", "qty": "20"}, {"size": "L", "qty": "20"}]},
@@ -291,6 +297,12 @@ function displayPosItems() {
       });
   }
 
+  // display all stationaries
+  function displayStationaries() {
+    const container = document.getElementById("stationaryContainer");
+    displayColTemplate(container, data.stationaries, "stationary");
+  }
+
   // Display all T-Shirts
   function displayTShirts() {
     const container = document.getElementById("tshirtContainer");
@@ -356,5 +368,6 @@ function displayPosItems() {
     displayPosItems();
     displayPosters();
     displayPromos();
+    displayStationaries();
     displayTShirts();
   }
