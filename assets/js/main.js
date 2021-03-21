@@ -164,6 +164,33 @@ function displayColTemplate(myContainer, myData, myAlt) {
     });
 }
 
+// display ul template
+/*
+  <ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      HS110
+      <span class="badge bg-custom rounded-pill">313</span>
+    </li>
+  </ul>
+*/
+function displayUlTemplate(myContainer, myData) {
+  myData.map(item => {
+    const unorderedList = document.createElement("ul");
+    unorderedList.setAttribute("class", "list-group");
+
+    const listItem = document.createElement("li");
+    listItem.setAttribute("class", "list-group-item d-flex justify-content-between align-items-center");
+    listItem.innerHTML = item.name;
+    
+    const span = document.createElement("span");
+    span.setAttribute("class", "badge bg-custom rounded-pill");
+    span.innerHTML = item.qty;
+    listItem.appendChild(span);
+    unorderedList.appendChild(listItem);
+    myContainer.appendChild(unorderedList);
+  });
+}
+
 // display all bags
 function displayBags() {
   const container = document.getElementById("bagContainer");
@@ -176,59 +203,23 @@ function displayBrochures() {
   displayColTemplate(container, data.brochures, "brochur");
 }
 
-  // display all dummy boxes
-  function displayBoxes() {
-    const container = document.getElementById("boxContainer");
-    /*
-      <ul class="list-group">
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          HS110
-          <span class="badge bg-custom rounded-pill">313</span>
-        </li>
-      </ul>
-    */
-    data.boxes.map(item => {
-      const unorderedList = document.createElement("ul");
-      unorderedList.setAttribute("class", "list-group");
+// display all dummy boxes
+function displayBoxes() {
+  const container = document.getElementById("boxContainer");
+  displayUlTemplate(container, data.boxes);
+}
 
-      const listItem = document.createElement("li");
-      listItem.setAttribute("class", "list-group-item d-flex justify-content-between align-items-center");
-      listItem.innerHTML = item.name;
-      
-      const span = document.createElement("span");
-      span.setAttribute("class", "badge bg-custom rounded-pill");
-      span.innerHTML = item.qty;
-      listItem.appendChild(span);
-      unorderedList.appendChild(listItem);
-      container.appendChild(unorderedList);
-    });
-  }
+// Display all dummy units
+function displayUnits() {
+  const container = document.getElementById("unitContainer");
+  displayUlTemplate(container, data.units);
+}
 
-  // Display all dummy units
-  function displayUnits() {
-    const container = document.getElementById("unitContainer");
-    data.units.map(item => {
-      const unorderedList = document.createElement("ul");
-      unorderedList.setAttribute("class", "list-group");
-
-      const listItem = document.createElement("li");
-      listItem.setAttribute("class", "list-group-item d-flex justify-content-between align-items-center");
-      listItem.innerHTML = item.name;
-      
-      const span = document.createElement("span");
-      span.setAttribute("class", "badge bg-custom rounded-pill");
-      span.innerHTML = item.qty;
-      listItem.appendChild(span);
-      unorderedList.appendChild(listItem);
-      container.appendChild(unorderedList);
-    });
-  }
-
-  // Display all POS Items
-  function displayPosItems() {
-    const container = document.getElementById("posItemContainer");
-    displayColTemplate(container, data.pos, "POS");
-  }
+// Display all POS Items
+function displayPosItems() {
+  const container = document.getElementById("posItemContainer");
+  displayColTemplate(container, data.pos, "POS");
+}
 
   // Display all Posters
   function displayPosters() {
