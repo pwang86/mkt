@@ -227,137 +227,79 @@ function displayPosItems() {
   displayColTemplate(container, data.pos, "POS");
 }
 
-  // Display all Posters
-  function displayPosters() {
-    const container = document.getElementById("posterContainer");
-    data.posters.map(item => {
-      const column = document.createElement("div");
-      column.setAttribute("class", "col"); 
-  
-      const card = document.createElement("div");
-      card.setAttribute("class", "card");
-  
-      const image = document.createElement("img");
-      image.src = "./assets/images" + item.url;
-      image.setAttribute("class", "card-img-top");
-      image.alt = "Poster";
-  
-      const body = document.createElement("div");
-      body.setAttribute("class", "card-body");
-      const title = document.createElement("h5");
-      title.setAttribute("class", "card-title");
-      title.innerHTML = item.name;
-      body.appendChild(title);
-  
-      const footer = document.createElement("div");
-      footer.setAttribute("class", "card-footer");
-      const text = document.createElement("small");
-      text.setAttribute("class", "text-muted");
-      text.innerHTML = "Qty: " + item.qty;
-      footer.appendChild(text);
-  
-      card.innerHTML = image.outerHTML + body.outerHTML + footer.outerHTML;
-      column.appendChild(card);
-      container.appendChild(column);
-      });
-  }
+// Display all Posters
+function displayPosters() {
+  const container = document.getElementById("posterContainer");
+  displayColTemplate(container, data.posters, "poster");
+}
 
-  // Display all promo Items
-  function displayPromos() {
-    const container = document.getElementById("promoContainer");
-    data.promos.map(item => {
-      const column = document.createElement("div");
-      column.setAttribute("class", "col"); 
-  
-      const card = document.createElement("div");
-      card.setAttribute("class", "card");
-  
-      const image = document.createElement("img");
-      image.src = "./assets/images" + item.url;
-      image.setAttribute("class", "card-img-top");
-      image.alt = "Promo Item";
-  
-      const body = document.createElement("div");
-      body.setAttribute("class", "card-body");
-      const title = document.createElement("h5");
-      title.setAttribute("class", "card-title");
-      title.innerHTML = item.name;
-      body.appendChild(title);
-  
-      const footer = document.createElement("div");
-      footer.setAttribute("class", "card-footer");
-      const text = document.createElement("small");
-      text.setAttribute("class", "text-muted");
-      text.innerHTML = "Qty: " + item.qty;
-      footer.appendChild(text);
-  
-      card.innerHTML = image.outerHTML + body.outerHTML + footer.outerHTML;
-      column.appendChild(card);
-      container.appendChild(column);
-      });
-  }
+// Display all promo Items
+function displayPromos() {
+  const container = document.getElementById("promoContainer");
+  displayColTemplate(container, data.promos, "promo item");
+}
 
-  // display all stationaries
-  function displayStationaries() {
-    const container = document.getElementById("stationaryContainer");
-    displayColTemplate(container, data.stationaries, "stationary");
-  }
+// display all stationaries
+function displayStationaries() {
+  const container = document.getElementById("stationaryContainer");
+  displayColTemplate(container, data.stationaries, "stationary");
+}
 
-  // Display all T-Shirts
-  function displayTShirts() {
-    const container = document.getElementById("tshirtContainer");
-    /*
-      <div class="col">
-        <div class="card">
-          <img src="./assets/images/stationary/n3.jpg" class="card-img-top" alt="notebook3">
-          <div class="card-body">
-            <h5 class="card-title">SMB Black Shirt</h5>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item d-flex justify-content-between align-items-center">Size S<span class="badge bg-custom rounded-pill">194</span></li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">Size M<span class="badge bg-custom rounded-pill">194</span></li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">Size L<span class="badge bg-custom rounded-pill">194</span></li>
-          </ul>
-        </div>
+// Display all T-Shirts
+function displayTShirts() {
+  const container = document.getElementById("tshirtContainer");
+  /*
+  <div class="col">
+    <div class="card">
+      <img src="./assets/images/stationary/n3.jpg" class="card-img-top" alt="notebook3">
+      <div class="card-body">
+        <h5 class="card-title">SMB Black Shirt</h5>
       </div>
-    */
-      data.tshirts.map(item => {
-        const column = document.createElement("div");
-        column.setAttribute("class", "col"); 
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item d-flex justify-content-between align-items-center">Size S<span class="badge bg-custom rounded-pill">194</span></li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">Size M<span class="badge bg-custom rounded-pill">194</span></li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">Size L<span class="badge bg-custom rounded-pill">194</span></li>
+      </ul>
+    </div>
+  </div>
+  */
+  data.tshirts.map(item => {
+    const column = document.createElement("div");
+    column.setAttribute("class", "col"); 
     
-        const card = document.createElement("div");
-        card.setAttribute("class", "card");
+    const card = document.createElement("div");
+    card.setAttribute("class", "card");
     
-        const image = document.createElement("img");
-        image.src = "./assets/images" + item.url;
-        image.setAttribute("class", "card-img-top");
-        image.alt = "t-shirt";
+    const image = document.createElement("img");
+    image.src = "./assets/images" + item.url;
+    image.setAttribute("class", "card-img-top");
+    image.alt = "t-shirt";
     
-        const body = document.createElement("div");
-        body.setAttribute("class", "card-body");
-        const title = document.createElement("h5");
-        title.setAttribute("class", "card-title");
-        title.innerHTML = item.name;
-        body.appendChild(title);
+    const body = document.createElement("div");
+    body.setAttribute("class", "card-body");
+    const title = document.createElement("h5");
+    title.setAttribute("class", "card-title");
+    title.innerHTML = item.name;
+    body.appendChild(title);
 
-        const unorderedList = document.createElement("ul");
-        unorderedList.setAttribute("class", "list-group list-group-flush");
-        item.group.map(gItem => {
-          const listItem = document.createElement("li");
-          listItem.setAttribute("class", "list-group-item d-flex justify-content-between align-items-center");
-          listItem.innerHTML = "Size" + gItem.size + ":";
+    const unorderedList = document.createElement("ul");
+    unorderedList.setAttribute("class", "list-group list-group-flush");
+    item.group.map(gItem => {
+      const listItem = document.createElement("li");
+      listItem.setAttribute("class", "list-group-item d-flex justify-content-between align-items-center");
+      listItem.innerHTML = "Size" + gItem.size + ":";
       
-          const span = document.createElement("span");
-          span.setAttribute("class", "badge bg-custom rounded-pill");
-          span.innerHTML = gItem.qty;
-          listItem.appendChild(span);
-          unorderedList.appendChild(listItem);
-        });
-        card.innerHTML = image.outerHTML + body.outerHTML + unorderedList.outerHTML;
-        column.appendChild(card);
-        container.appendChild(column);
-      });
-  }
+      const span = document.createElement("span");
+      span.setAttribute("class", "badge bg-custom rounded-pill");
+      span.innerHTML = gItem.qty;
+      listItem.appendChild(span);
+      unorderedList.appendChild(listItem);
+    });
+    card.innerHTML = image.outerHTML + body.outerHTML + unorderedList.outerHTML;
+    column.appendChild(card);
+    container.appendChild(column);
+  });
+}
 
   window.onload = function() {
     showLastModified();
