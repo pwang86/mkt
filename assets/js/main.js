@@ -110,10 +110,10 @@ const jsonData = `
     {"url":"/promo/p4.jpg","name":"USB (16G)","qty":"12"}
   ],
   "stationaries": [
-    {"url":"/stationary/n1.jpg","name":"A4 Diary NoteBook","qty":"167"},
-    {"url":"/stationary/n2.jpg","name":"Mercusys Diary NoteBook","qty":"842"},
-    {"url":"/stationary/n3.jpg","name":"A5 NoteBook","qty":"2"},
-    {"url":"/stationary/ring.jpg","name":"Postal Tubes","qty":"32"}
+    {"url":"/stationery/n1.jpg","name":"A4 Diary NoteBook","qty":"167"},
+    {"url":"/stationery/n2.jpg","name":"Mercusys Diary NoteBook","qty":"842"},
+    {"url":"/stationery/n3.jpg","name":"A5 NoteBook","qty":"2"},
+    {"url":"/stationery/ring.jpg","name":"Postal Tubes","qty":"32"}
   ],
   "tshirts": [
     {"url": "/poster/p1.jpg", "name": "Polo", "group": [{"size": "S", "qty": "20"}, {"size": "M", "qty": "20"}, {"size": "L", "qty": "20"}]},
@@ -241,8 +241,8 @@ function displayPromos() {
 
 // display all stationaries
 function displayStationaries() {
-  const container = document.getElementById("stationaryContainer");
-  displayColTemplate(container, data.stationaries, "stationary");
+  const container = document.getElementById("stationeryContainer");
+  displayColTemplate(container, data.stationaries, "stationery");
 }
 
 // Display all T-Shirts
@@ -251,7 +251,7 @@ function displayTShirts() {
   /*
   <div class="col">
     <div class="card">
-      <img src="./assets/images/stationary/n3.jpg" class="card-img-top" alt="notebook3">
+      <img src="./assets/images/stationery/n3.jpg" class="card-img-top" alt="notebook3">
       <div class="card-body">
         <h5 class="card-title">SMB Black Shirt</h5>
       </div>
