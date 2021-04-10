@@ -140,7 +140,7 @@ const data = JSON.parse(jsonData);
 function displayColTemplate(myContainer, myData, myAlt) {
   myData.map(item => {
     const column = document.createElement("div");
-    column.setAttribute("class", "col"); 
+    column.setAttribute("class", "col d-flex"); 
 
     const card = document.createElement("div");
     card.setAttribute("class", "card");
@@ -265,7 +265,7 @@ function displayTShirts() {
   */
   data.tshirts.map(item => {
     const column = document.createElement("div");
-    column.setAttribute("class", "col"); 
+    column.setAttribute("class", "col d-flex"); 
     
     const card = document.createElement("div");
     card.setAttribute("class", "card");
