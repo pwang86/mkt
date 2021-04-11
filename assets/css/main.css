@@ -55,6 +55,9 @@
         position: sticky;
         top: 0;
     }
+    .card {
+        transition: transform .2s;
+    }
     .card:hover {
         transform: scale(1.05);
         box-shadow: 0 0.5em 2em 0 rgba(54,68,75,.18);
