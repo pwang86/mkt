@@ -287,7 +287,7 @@ function displayTShirts() {
     item.group.map(gItem => {
       const listItem = document.createElement("li");
       listItem.setAttribute("class", "list-group-item d-flex justify-content-between align-items-center");
-      listItem.innerHTML = "Size" + gItem.size + ":";
+      listItem.innerHTML = "Size " + gItem.size + ":";
       
       const span = document.createElement("span");
       span.setAttribute("class", "badge bg-custom rounded-pill");
