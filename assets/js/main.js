@@ -149,6 +149,7 @@ function displayColTemplate(myContainer, myData, myAlt) {
     image.src = "./assets/images" + item.url;
     image.setAttribute("class", "card-img-top");
     image.alt = myAlt;
+    image.loading = "lazy"
 
     const body = document.createElement("div");
     body.setAttribute("class", "card-body");
@@ -274,6 +275,7 @@ function displayTShirts() {
     image.src = "./assets/images" + item.url;
     image.setAttribute("class", "card-img-top");
     image.alt = "t-shirt";
+    image.loading = "lazy";
     
     const body = document.createElement("div");
     body.setAttribute("class", "card-body");
