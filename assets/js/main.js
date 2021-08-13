@@ -3,7 +3,7 @@ function showLastModified() {
   let today = new Date(new Date().setHours(0, 0, 0, 0));
 
   // set modified date (MM/DD/YYYY)
-  let modifiedDate = new Date("03/20/2021");
+  let modifiedDate = new Date("08/13/2021");
 
   let diffTime = Math.abs(modifiedDate.getTime() - today.getTime());
   // get diff in days
@@ -38,26 +38,10 @@ tabEl.addEventListener('shown.bs.tab', function (e) {
 const jsonData = `
 {
   "bags": [ 
-    {"url": "/bag/b1.jpg", "name": "white plastic bag", "qty": "500"},
-    {"url": "/bag/b2.jpg", "name": "white plastic bag(Mercusys)", "qty": "500"},
-    {"url": "/bag/b3.jpg", "name": "Non-woven Bag", "qty": "500"},
-    {"url": "/bag.b4.jpg", "name": "Laptop bag", "qty": "500"}
-  ],
-  "brochures": [
-    {"url": "/brochur/b1.jpg", "name": "Tp-Link Product Guide", "qty": "9"},
-    {"url": "/brochur/b2.jpg", "name": "KASA Smart Product Guide", "qty": "1"},
-    {"url": "/brochur/b3.jpg", "name": "Tapo Product Guide", "qty": "23"},
-    {"url": "/brochur/b4.jpg", "name": "Business Switches and Router", "qty": "29"},
-    {"url": "/brochur/b5.jpg", "name": "Pharos Solution", "qty": "14"},
-    {"url": "/brochur/4g.jpg", "name": "4G and MiFi", "qty": "3603"},
-    {"url": "/brochur/dsl.jpg", "name": "DSL", "qty": "3593"},
-    {"url": "/brochur/kasa.jpg", "name": "Kasa Smart", "qty": "3553"},
-    {"url": "/brochur/mercusys.png", "name": "Mercusys", "qty": "4003"},
-    {"url": "/brochur/mesh.jpg", "name": "Mesh Wi-Fi", "qty": "3513"},
-    {"url": "/brochur/omada.jpg", "name": "Omada SDN", "qty": "3573"},
-    {"url": "/brochur/range.jpg", "name": "Range Extenders and Powerline", "qty": "3613"},
-    {"url": "/brochur/tapo.jpg", "name": "Tapo Smart", "qty": "3663"},
-    {"url": "/brochur/wifi6.jpg", "name": "Wi-Fi 6 and Gaming Routers", "qty": "3613"}
+    {"url": "/joni.jpg", "name": "White Plastic Bag", "qty": "500"},
+    {"url": "/joni.jpg", "name": "White Plastic Bag(Small)", "qty": "500"},
+    {"url": "/joni.jpg", "name": "Non-woven Bag", "qty": "500"},
+    {"url": "/joni.jpg", "name": "Laptop Bag", "qty": "500"}
   ],
   "boxes": [
     {"name": "HS110", "qty": "313"},
@@ -90,35 +74,10 @@ const jsonData = `
     {"name": "X20 (1 Pack)", "qty": "26"},
     {"name": "M5 (1 Pack)", "qty": "15"}
   ],
-  "pos": [
-    {"url": "/pos/p1.jpg", "name": "A4 Acrylic Stand", "qty": "29"},
-    {"url": "/pos/p2.jpg", "name": "A5 Acrylic Stand", "qty": "18"},
-    {"url": "/pos/p3.jpg", "name": "A6 Acrylic Stand", "qty": "65"},
-    {"url": "/pos/p4.jpg", "name": "Plastic Stand", "qty": "110"},
-    {"url": "/pos/p4.jpg", "name": "Thick Plastic Stand(9cm x 9cm)", "qty": "77"}
-  ],
-  "posters": [
-    {"url":"/poster/p1.jpg","name":"Deco M5","qty":"35"},
-    {"url":"/poster/p2.jpg","name":"Whole Home Mesh Wi-Fi Plastic Banner2 M5(3-pack)","qty":"19"},
-    {"url":"/poster/p3.jpg","name":"Tp-Link Logo Plastic Banner","qty":"12"},
-    {"url":"/poster/p4.jpg","name":"RE305 & RE650","qty":"38"}
-  ],
-  "promos": [
-    {"url":"/promo/p1.jpg","name":"Ball Pen","qty":"35"},
-    {"url":"/promo/p2.jpg","name":"Ball Pen (Blue)","qty":"19"},
-    {"url":"/promo/p3.jpg","name":"Ball Pen (Mercusys)","qty":"12"},
-    {"url":"/promo/p4.jpg","name":"USB (16G)","qty":"12"}
-  ],
-  "stationaries": [
-    {"url":"/stationery/n1.jpg","name":"A4 Diary NoteBook","qty":"167"},
-    {"url":"/stationery/n2.jpg","name":"Mercusys Diary NoteBook","qty":"842"},
-    {"url":"/stationery/n3.jpg","name":"A5 NoteBook","qty":"2"},
-    {"url":"/stationery/ring.jpg","name":"Postal Tubes","qty":"32"}
-  ],
   "tshirts": [
-    {"url": "/poster/p1.jpg", "name": "Polo", "group": [{"size": "S", "qty": "20"}, {"size": "M", "qty": "20"}, {"size": "L", "qty": "20"}]},
-    {"url": "/poster/p2.jpg", "name": "Blue", "group": [{"size": "S", "qty": "20"}, {"size": "M", "qty": "20"}, {"size": "L", "qty": "20"}]},
-    {"url": "/poster/p3.jpg", "name": "Black", "group": [{"size": "S", "qty": "20"}, {"size": "M", "qty": "20"}, {"size": "L", "qty": "20"}]}
+    {"url": "/joni.jpg", "name": "Polo", "group": [{"size": "S", "qty": "20"}, {"size": "M", "qty": "20"}, {"size": "L", "qty": "20"}]},
+    {"url": "/joni.jpg", "name": "Blue", "group": [{"size": "S", "qty": "20"}, {"size": "M", "qty": "20"}, {"size": "L", "qty": "20"}]},
+    {"url": "/joni.jpg", "name": "Black", "group": [{"size": "S", "qty": "20"}, {"size": "M", "qty": "20"}, {"size": "L", "qty": "20"}]}
   ]
 }`;
 const data = JSON.parse(jsonData);
@@ -204,12 +163,6 @@ function displayBags() {
   displayColTemplate(container, data.bags, "bag");
 }
 
-// display all brochures
-function displayBrochures() {
-  const container = document.getElementById("brochurContainer");
-  displayColTemplate(container, data.brochures, "brochur");
-}
-
 // display all dummy boxes
 function displayBoxes() {
   const container = document.getElementById("boxContainer");
@@ -220,30 +173,6 @@ function displayBoxes() {
 function displayUnits() {
   const container = document.getElementById("unitContainer");
   displayUlTemplate(container, data.units);
-}
-
-// Display all POS Items
-function displayPosItems() {
-  const container = document.getElementById("posItemContainer");
-  displayColTemplate(container, data.pos, "POS");
-}
-
-// Display all Posters
-function displayPosters() {
-  const container = document.getElementById("posterContainer");
-  displayColTemplate(container, data.posters, "poster");
-}
-
-// Display all promo Items
-function displayPromos() {
-  const container = document.getElementById("promoContainer");
-  displayColTemplate(container, data.promos, "promo item");
-}
-
-// display all stationaries
-function displayStationaries() {
-  const container = document.getElementById("stationeryContainer");
-  displayColTemplate(container, data.stationaries, "stationery");
 }
 
 // Display all T-Shirts
@@ -306,12 +235,7 @@ function displayTShirts() {
   window.onload = function() {
     showLastModified();
     displayBags();
-    displayBrochures();
     displayBoxes();
     displayUnits();
-    displayPosItems();
-    displayPosters();
-    displayPromos();
-    displayStationaries();
     displayTShirts();
   }
